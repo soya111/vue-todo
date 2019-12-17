@@ -69,3 +69,10 @@ h2{
     font-size: large;
     font-weight: 700;
 }
+.option{
+    display: flex;
+}
+.option li{
+    list-style: none;
+    padding: 1em;
+}
