@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./main.css">
     <title>Vue.js App</title>
 </head>
@@ -12,7 +13,7 @@
 <body>
     <div id="app">
         <label v-for="label in options">
-            <input type="radio" v-model="current" v-bind:value="label.value">{{ label.label }}
+            <p><input type="radio" v-model="current" v-bind:value="label.value" class="with-gap">{{ label.label }}</p>
         </label>
         <p>({{ computedTodos.length }}件を表示中)</p>
         <table>
@@ -29,10 +30,11 @@
                     <th>{{ item.id }}</th>
                     <td>{{ item.comment }}</td>
                     <td class="state">
-                        <button v-on:click="doChangeState(item)">{{ labels[item.state] }}</button>
+                        <button v-on:click="doChangeState(item)"
+                            class="waves-effect waves-light btn">{{ labels[item.state] }}</button>
                     </td>
                     <td class="button">
-                        <button v-on:click="doRemove(item)">削除</button>
+                        <button v-on:click="doRemove(item)" class="waves-effect waves-light btn">削除</button>
                     </td>
                 </tr>
             </tbody>
@@ -40,9 +42,10 @@
         <h2>新しい作業の追加</h2>
         <form class="add-form" v-on:submit.prevent="doAdd">
             <input type="text" ref="comment">
-            <button type="submit">追加</button>
+            <button type="submit" class="waves-effect waves-light btn">追加</button>
         </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="./main.js"></script>
 </body>
