@@ -58,7 +58,7 @@ const app = new Vue({
             deep: true
         }
     },
-    created: () => {
+    created() {
         this.todos = todoStorage.fetch()
     },
     computed: {
